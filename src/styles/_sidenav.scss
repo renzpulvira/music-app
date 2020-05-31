@@ -1,0 +1,41 @@
+.sidenav {
+  height: 100vh;
+  background: #191919;
+  color: #fff;
+
+  a {
+    color: #fff;
+    display: flex;
+    text-decoration: none;
+    text-transform: uppercase;
+    align-items: center;
+    font-size: 12px;
+    height: 63px;
+    padding-left: 20px;
+    position: relative;
+
+    svg {
+      font-size: 23px;
+      margin-right: 5px;
+    }
+
+    &.active:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: red;
+      width: 5px;
+    }
+  }
+
+  #mainlogo {
+    font-family: "Ubuntu";
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: lowercase;
+    color: #d93b10;
+    background: black;
+  }
+}
