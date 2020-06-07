@@ -1,12 +1,26 @@
+.search {
+  position: relative;
+}
+
+.search svg {
+  position: absolute;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #fff;
+  left: 21px;
+  font-size: 19px;
+}
+
 .search input {
   display: flex;
   height: 63px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 20px 0 49px;
   border: 0;
   background: #111;
   outline: 0;
   color: #fff;
+  font-size: 14px;
 
   &::placeholder {
     color: #fff;

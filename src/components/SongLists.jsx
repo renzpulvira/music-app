@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import { MdClose, MdUnfoldMore } from "react-icons/md";
-import SongItem from "../components/SongItem";
+import SongItem from "./SongItem";
+import SongPlaying from "./SongPlaying";
 
 export default function SongLists({ dataSongs } = this.props) {
   return (
@@ -13,14 +14,10 @@ export default function SongLists({ dataSongs } = this.props) {
             <span>CHANNEL</span>
             <span>CONTROLS</span>
           </li>
-          <li>
-            <span>Tame Impala - Feels we only go backwards</span>
-            <span>Tame Impala</span>
-            <span>
-              <MdClose />
-              <MdUnfoldMore />
-            </span>
-          </li>
+          <SongPlaying
+            title={dataSongs[0].title}
+            channel={dataSongs[0].channel}
+          />
         </ul>
       </div>
       <div className="queues__songqueues">
@@ -31,9 +28,17 @@ export default function SongLists({ dataSongs } = this.props) {
             <span>CHANNEL</span>
             <span>CONTROLS</span>
           </li>
-          {dataSongs.map((data, i) => (
-            <SongItem song={data.song} channel={data.channel} key={i} />
-          ))}
+          {dataSongs.map((data, i) =>
+            // Don't render first item
+            i == 0 ? null : (
+              <SongItem
+                songId={i}
+                title={data.title}
+                channel={data.channel}
+                key={i}
+              />
+            )
+          )}
         </ul>
       </div>
     </div>

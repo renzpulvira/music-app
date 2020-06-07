@@ -1,4 +1,5 @@
 import * as firebase from "firebase";
+import "firebase/auth";
 
 const fire = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIRE_API,

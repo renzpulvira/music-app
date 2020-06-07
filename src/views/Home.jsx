@@ -8,21 +8,22 @@ export default function Home() {
   const { queues } = useContext(AppContext);
   const loadingData = [
     {
-      song: "Loading...",
-      channel: "waiting...",
+      title: "Getting Title...",
+      channel: "Getting Channel...",
     },
     {
-      song: "Loading...",
-      channel: "waiting...",
+      title: "Getting Title...",
+      channel: "Getting Channel...",
     },
     {
-      song: "Loading...",
-      channel: "waiting...",
+      title: "Getting Title...",
+      channel: "Getting Channel...",
     },
   ];
 
   return (
     <div>
+      <button onClick={() => fire.auth().signOut()}>Sign Out</button>
       <Search />
       <SongLists dataSongs={queues ? queues : loadingData} />
     </div>

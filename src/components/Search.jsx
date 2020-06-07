@@ -1,58 +1,52 @@
 import React, { useState, Fragment } from "react";
 import SearchResults from "./SearchResults";
 import searchYoutube from "youtube-api-v3-search";
+import { FiSearch } from "react-icons/fi";
 
 export default function Search() {
+  const API_KEY = process.env.REACT_APP_YT_KEY;
   const [temp, setTemp] = useState([]);
   const [term, setTerm] = useState(null);
   const [results, setResults] = useState([
     {
-      channel: "MATTSUN BG",
-      id: "kcU3Pzlz8HUreKcPPdhB4cprWk4",
-      thumb: "https://i.ytimg.com/vi/G6BUQmkwuZc/mqdefault.jpg",
-      title: "NULL!? Girl became Boy in Bed wars😳 - Blockman Go",
-      video: "G6BUQmkwuZc",
+      id: "A0M4ayRcnQiYPOVmXRZZeN_C-Ac",
+      video: "sBzrzS1Ag_g",
+      title: "Tame Impala - The Less I Know The Better (Official Video)",
+      channel: "tameimpalaVEVO",
+      thumb: "https://i.ytimg.com/vi/sBzrzS1Ag_g/mqdefault.jpg",
     },
     {
-      channel: "Senpai Bmgo",
-      id: "Xrzrb6S1_HBKMkQk4-7-jU8Z9LQ",
-      thumb: "https://i.ytimg.com/vi/OiuGl_PgsxM/mqdefault.jpg",
-      title: "3 unsolved mystery in Null 😨 at Blockman Go 😨",
-      video: "OiuGl_PgsxM",
+      id: "30fcNt8yKiuokjHxQRASoAQoMGs",
+      video: "wycjnCCgUes",
+      title: "Tame Impala - Feels Like We Only Go Backwards (Official Video)",
+      channel: "tameimpalaVEVO",
+      thumb: "https://i.ytimg.com/vi/wycjnCCgUes/mqdefault.jpg",
     },
     {
-      channel: "YaBoiAction",
-      id: "7CWyu-ciMiApwIbzqFkan8SWPe0",
-      thumb: "https://i.ytimg.com/vi/IoeScV0Iqjk/mqdefault.jpg",
-      title: "MINECRAFT NULL IN REAL LIFE! Minecraft vs Real Life",
-      video: "IoeScV0Iqjk",
+      id: "CWpEJv4bmAK22cnUss-ezxK0YB0",
+      video: "O2lzmpEs29M",
+      title: "The Less I Know The Better - Tame Impala Lyrics",
+      channel: "THEO",
+      thumb: "https://i.ytimg.com/vi/O2lzmpEs29M/mqdefault.jpg",
     },
     {
-      channel: "Senpai Bmgo",
-      id: "VglsMBZoTHHh7mc1E8T2glaKW5Q",
-      thumb: "https://i.ytimg.com/vi/mFAY9kWIesA/mqdefault.jpg",
-      title: "NULL The unexplained caught on camera in Blockman Go",
-      video: "mFAY9kWIesA",
+      id: "R60FRr5tI7PapKlsEq1rwzcBdMQ",
+      video: "utCjuKDXQsE",
+      title: "Tame Impala - Lost in Yesterday (Official Video)",
+      channel: "tameimpalaVEVO",
+      thumb: "https://i.ytimg.com/vi/utCjuKDXQsE/mqdefault.jpg",
     },
     {
-      channel: "Lucas King",
-      id: "gn2fg5FbAGOvmIaAwJ7H0OebVDE",
-      thumb: "https://i.ytimg.com/vi/9PNvWVUAxKs/mqdefault.jpg",
-      title: "Dark Piano - Null",
-      video: "9PNvWVUAxKs",
-    },
-  ]);
-  const [staticData, setStaticData] = useState([
-    {
-      channel: "iDubbbzTV",
-      id: "_tTMICjj09MqXt2fnA0z5grwEf8",
-      thumb: "https://i.ytimg.com/vi/Lm6qd1JydBQ/mqdefault.jpg",
-      video: "Lm6qd1JydBQ",
+      id: "rKhW3dStcfV3pYbmT_LwKfx3h3w",
+      video: "pFptt7Cargc",
+      title: "Tame Impala - Let It Happen (Official Video)",
+      channel: "tameimpalaVEVO",
+      thumb: "https://i.ytimg.com/vi/pFptt7Cargc/mqdefault.jpg",
     },
   ]);
 
   function goSearch(term) {
-    searchYoutube(process.env.REACT_APP_YT_KEY, {
+    searchYoutube(API_KEY, {
       q: term,
       part: "snippet",
       type: "video",
@@ -84,10 +78,11 @@ export default function Search() {
   return (
     <Fragment>
       <form onSubmit={(e) => handleSubmit(e)} className="search">
+        <FiSearch />
         <input
           onChange={(e) => handleChange(e.target.value)}
           type="text"
-          placeholder="🔍 Search for song, artist etc.."
+          placeholder="Search for song, artist etc.."
         />
       </form>
       <SearchResults results={results} />
