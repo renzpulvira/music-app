@@ -9,21 +9,25 @@ import PrivateRoute from "./PrivateRouter";
 import Signup from "./views/Signup";
 import Login from "./views/Signin";
 import Navbar from "./components/Navbar";
+import PlayerBar from "./components/PlayerBar";
 import fire from "./config";
 
 function App() {
   return (
     <Router>
       <AppProvider>
-        <Navbar />
-        <div className="content">
-          <Switch>
-            <PrivateRoute exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/favorites" component={Favorites} />
-            <Route path="/settings" component={Settings} />
-          </Switch>
+        <div className="root__wrapper">
+          <Navbar />
+          <div className="content">
+            <Switch>
+              <PrivateRoute exact path="/" component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/favorites" component={Favorites} />
+              <Route path="/settings" component={Settings} />
+            </Switch>
+          </div>
+          <PlayerBar />
         </div>
       </AppProvider>
     </Router>

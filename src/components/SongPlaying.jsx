@@ -15,7 +15,7 @@ export default function SongPlaying({ title, channel } = this.props) {
 
   return (
     <li>
-      <span>{title}</span>
+      <span>{title.length > 48 ? `${title.substring(0, 48)}...` : title}</span>
       <span>{channel}</span>
       <span>
         <MdClose onClick={() => removeNowPlaying()} />

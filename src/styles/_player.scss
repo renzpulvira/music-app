@@ -1,0 +1,145 @@
+.player {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 700px;
+  height: 600px;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 40px 0 0;
+    background: #1e1e1e;
+
+    & > * {
+      margin: 0 auto;
+    }
+  }
+
+  &__video {
+    margin-bottom: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    iframe {
+      opacity: 0;
+    }
+  }
+
+  &__playing {
+    width: 100%;
+    max-width: 310px;
+    text-align: center;
+    line-height: 1.5;
+
+    .title {
+      display: block;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .channel {
+      display: block;
+      color: #ccc;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 140px;
+    margin: 20px auto 0;
+
+    svg {
+      color: #ddd;
+      flex: 0 33%;
+      font-size: 21px;
+      cursor: pointer;
+
+      &:nth-child(1) {
+        font-size: 28px;
+      }
+
+      &:last-child {
+        color: #ccc;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.playerbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 70px;
+  background: #101010;
+  width: 100%;
+  align-items: center;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+
+    .thePlayer {
+      height: 0 !important;
+      width: 0 !important;
+      right: 0;
+    }
+  }
+
+  &__playing {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    .thumb {
+      background-size: cover;
+      height: 51px;
+      width: 60px;
+      border-radius: 8px;
+      background-position-x: center;
+      margin-right: 15px;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    max-width: 240px;
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    span {
+      font-size: 12px;
+      color: #afa3a3;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    svg {
+      color: #fff;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__seek {
+    width: 100%;
+    max-width: 66%;
+  }
+}

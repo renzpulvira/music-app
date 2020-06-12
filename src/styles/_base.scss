@@ -14,8 +14,10 @@ ul {
 }
 
 #root {
-  display: grid;
-  grid-template-columns: 200px 1fr;
+  .root__wrapper {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
 }
 
 .content {

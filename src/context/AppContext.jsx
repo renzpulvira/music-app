@@ -6,6 +6,8 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [queues, setQueues] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const getData = () => {
     fire
@@ -26,7 +28,16 @@ export const AppProvider = (props) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ queues, currentUser }}>
+    <AppContext.Provider
+      value={{
+        queues,
+        currentUser,
+        currentTime,
+        setCurrentTime,
+        isPlaying,
+        setIsPlaying,
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

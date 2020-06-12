@@ -2,18 +2,17 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdHome, MdFavorite, MdSettings } from "react-icons/md";
 import { AppContext } from "../context/AppContext";
+import Logo from "../assets/images/logo.png";
 
 export default function Navbar() {
   const [currActive, setCurrActive] = useState("linkHome");
   const { currentUser } = useContext(AppContext);
 
   return (
-    <nav className="sidenav">
+    <nav className={currentUser ? "sidenav" : "sidenav h-100"}>
       <Link onClick={() => setCurrActive("linkHome")} id="mainlogo" to="/">
-        <span role="img" aria-label="emoji">
-          🎶
-        </span>
-        Beats
+        <img src={Logo} alt="" />
+        Beatz
       </Link>
       {currentUser ? (
         <Link
