@@ -24,12 +24,6 @@ export default function Home() {
 
   return (
     <div>
-      <button
-        style={{ position: "absolute", right: "0", bottom: "0", zIndex: "10" }}
-        onClick={() => fire.auth().signOut()}
-      >
-        Sign Out
-      </button>
       <Search />
       <div>
         <SongLists dataSongs={queues ? queues : loadingData} />

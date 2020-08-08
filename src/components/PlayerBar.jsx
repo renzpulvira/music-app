@@ -1,10 +1,26 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
-import { FaPlay, FaStepForward } from "react-icons/fa";
+import {
+  FiPause,
+  FiPlay,
+  FiHeart,
+  FiSkipForward,
+  FiLogOut,
+  FiVolumeX,
+  FiVolume2,
+} from "react-icons/fi";
 import { AppContext } from "../context/AppContext";
 import ReactPlayer from "react-player";
+import fire from "../config";
 
 export default function PlayerBar() {
-  const { queues, isPlaying, setIsPlaying } = useContext(AppContext);
+  const {
+    queues,
+    isPlaying,
+    setIsPlaying,
+    removeNowPlaying,
+    setIsMuted,
+    isMuted,
+  } = useContext(AppContext);
   const { currentUser } = useContext(AppContext);
   const playerRef = useRef();
 
@@ -28,8 +44,9 @@ export default function PlayerBar() {
               opacity: "0",
             }}
             playing={isPlaying}
-            muted="true"
+            muted={isMuted}
             ref={playerRef}
+            onEnded={() => removeNowPlaying()}
           />
           <div className="playerbar__playing">
             <div
@@ -43,10 +60,28 @@ export default function PlayerBar() {
             </div>
           </div>
           <div className="playerbar__controls">
-            <FaPlay onClick={() => setIsPlaying(!isPlaying)} />
-            <FaStepForward />
+            {!isPlaying ? (
+              <FiPlay onClick={() => setIsPlaying(!isPlaying)} />
+            ) : (
+              <FiPause onClick={() => setIsPlaying(!isPlaying)} />
+            )}
+
+            <FiSkipForward onClick={() => removeNowPlaying()} />
+            {isMuted ? (
+              <FiVolumeX onClick={() => setIsMuted(!isMuted)} />
+            ) : (
+              <FiVolume2 onClick={() => setIsMuted(!isMuted)} />
+            )}
+
+            <FiHeart />
           </div>
           <input className="playerbar__seek" type="range" min="0" max="10" />
+          <span
+            className="playerbar__signout"
+            onClick={() => fire.auth().signOut()}
+          >
+            <span>Sign Out</span>
+          </span>
         </div>
       )}
     </div>

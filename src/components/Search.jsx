@@ -43,6 +43,27 @@ export default function Search() {
       channel: "tameimpalaVEVO",
       thumb: "https://i.ytimg.com/vi/pFptt7Cargc/mqdefault.jpg",
     },
+    {
+      id: "CWpEJv4bmAK22cnUss-ezxK0YB0",
+      video: "O2lzmpEs29M",
+      title: "The Less I Know The Better - Tame Impala Lyrics",
+      channel: "THEO",
+      thumb: "https://i.ytimg.com/vi/O2lzmpEs29M/mqdefault.jpg",
+    },
+    {
+      id: "R60FRr5tI7PapKlsEq1rwzcBdMQ",
+      video: "utCjuKDXQsE",
+      title: "Tame Impala - Lost in Yesterday (Official Video)",
+      channel: "tameimpalaVEVO",
+      thumb: "https://i.ytimg.com/vi/utCjuKDXQsE/mqdefault.jpg",
+    },
+    {
+      id: "rKhW3dStcfV3pYbmT_LwKfx3h3w",
+      video: "pFptt7Cargc",
+      title: "Tame Impala - Let It Happen (Official Video)",
+      channel: "tameimpalaVEVO",
+      thumb: "https://i.ytimg.com/vi/pFptt7Cargc/mqdefault.jpg",
+    },
   ]);
 
   function goSearch(term) {
@@ -50,8 +71,9 @@ export default function Search() {
       q: term,
       part: "snippet",
       type: "video",
-      maxResults: 5,
+      maxResults: 8,
     }).then((res) => {
+      console.log(res);
       setResults(
         res.items.map((data) => {
           return {

@@ -5,7 +5,7 @@ import fire from "../config";
 
 export default function SearchResults({ results } = this.props) {
   const params = {
-    slidesPerView: 3,
+    slidesPerView: 8,
     freeMode: true,
     dots: false,
     height: 300,

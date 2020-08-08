@@ -4,6 +4,7 @@
   display: block;
   width: 800px;
   flex: 0 50%;
+  margin: 0 auto;
 
   h3 {
     margin: 0 0 15px;
@@ -36,7 +37,7 @@
 
       svg {
         font-size: 18px;
-        margin-right: 5px;
+        margin-right: 10px;
         cursor: pointer;
 
         &:last-child {
@@ -54,5 +55,11 @@
 
   &__nowplaying li:nth-child(2) span {
     color: #ee4518;
+  }
+
+  &__songqueues ul {
+    width: 100%;
+    max-height: 609px;
+    overflow-y: auto;
   }
 }

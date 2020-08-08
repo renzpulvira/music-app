@@ -8,6 +8,7 @@ export const AppProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const getData = () => {
     fire
@@ -20,6 +21,12 @@ export const AppProvider = (props) => {
           })
         );
       });
+  };
+
+  const removeNowPlaying = () => {
+    let result = [...queues];
+    result.shift();
+    fire.database().ref().child("queues").set(result);
   };
 
   useEffect(() => {
@@ -36,6 +43,9 @@ export const AppProvider = (props) => {
         setCurrentTime,
         isPlaying,
         setIsPlaying,
+        removeNowPlaying,
+        isMuted,
+        setIsMuted,
       }}
     >
       {props.children}

@@ -78,7 +78,8 @@
   left: 0;
   display: flex;
   height: 70px;
-  background: #101010;
+  // background: #101010;
+  background: #151916;
   width: 100%;
   align-items: center;
 
@@ -87,6 +88,7 @@
     align-items: center;
     width: 100%;
     padding: 0 15px;
+    position: relative;
 
     .thePlayer {
       height: 0 !important;
@@ -99,6 +101,10 @@
     margin-right: 30px;
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 330px;
+    min-width: 330px;
+
     .thumb {
       background-size: cover;
       height: 51px;
@@ -131,9 +137,16 @@
     svg {
       color: #fff;
       margin-right: 15px;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
 
       &:last-child {
         margin-right: 0;
+      }
+
+      &:hover {
+        transition: all 0.2s ease-in-out;
+        fill: #fff;
       }
     }
   }
@@ -141,5 +154,31 @@
   &__seek {
     width: 100%;
     max-width: 66%;
+  }
+
+  &__signout {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    background: #333;
+    height: 35px;
+    width: 95px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 0 10px;
+
+    & > span {
+      font-size: 14px;
+    }
+
+    &:hover {
+      background: #555;
+    }
   }
 }
